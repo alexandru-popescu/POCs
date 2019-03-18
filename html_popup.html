@@ -32,7 +32,7 @@
 					//childWin = window.open("https://www.w3schools.com", "_blank", "location=no");
 					childWin = window.open("https://www.w3schools.com", "_blank");
 				} else {
-					childWin = window.open("https://www.w3schools.com", argName, "location=yes,fullscreen=no,toolbar=no,scrollbars=yes,resizable=yes,modal=no" + ",width="+screen.availWidth+",height="+screen.availHeight);
+					childWin = window.open("https://www.w3schools.com", argName, "location=no,fullscreen=no,toolbar=no,scrollbars=yes,resizable=yes,modal=no" + ",width="+screen.availWidth+",height="+screen.availHeight);
 				}
 				$.blockUI();
 				interval = window.setInterval(checkClosedAndUnblock, 500);
