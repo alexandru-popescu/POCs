@@ -29,7 +29,8 @@
 				//childWin = window.open("http://localhost:8080", "name", "location=no,fullscreen=yes,toolbar=no,scrollbars=yes,resizable=yes,modal=yes" + ",width="+screen.availWidth+",height="+screen.availHeight);
 				window.onbeforeunload = beforeUnloadHandler;
 				if(argName == '_blank') {
-					childWin = window.open("https://www.w3schools.com", "_blank", "location=no");
+					//childWin = window.open("https://www.w3schools.com", "_blank", "location=no");
+					childWin = window.open("https://www.w3schools.com", "_blank");
 				} else {
 					childWin = window.open("https://www.w3schools.com", argName, "location=yes,fullscreen=no,toolbar=no,scrollbars=yes,resizable=yes,modal=no" + ",width="+screen.availWidth+",height="+screen.availHeight);
 				}
