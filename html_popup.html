@@ -3,17 +3,16 @@
 		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://malsup.github.io/jquery.blockUI.js"></script>
-		<script type="text/javascript">
-			window.onbeforeunload = function(event) {
-				event.preventDefault();
-				return "Are you sure you want to leave? The flow might be impacted!";
-			}
-		</script>
 		<script>
 			var childWin = null;
 			var interval = null;
+			var beforeUnloadHandler = function(event) {
+				event.preventDefault();
+				return "Are you sure you want to leave? The flow might be impacted!";
+			}
 			var checkClosedAndUnblock = function() {
 				if(childWin == null || childWin.closed) {
+					window.onbeforeunload = null;
 					$.unblockUI();
 					if(interval != null) {
 						clearInterval(interval);
@@ -28,8 +27,9 @@
 				}
 				*/				
 				//childWin = window.open("http://localhost:8080", "name", "location=no,fullscreen=yes,toolbar=no,scrollbars=yes,resizable=yes,modal=yes" + ",width="+screen.availWidth+",height="+screen.availHeight);
+				window.onbeforeunload = beforeUnloadHandler;
 				if(argName == '_blank') {
-					childWin = window.open("https://www.w3schools.com", argName, "location=yes,fullscreen=no,toolbar=no,scrollbars=yes,resizable=yes,modal=yes" + ",width="+screen.availWidth+",height="+screen.availHeight);
+					childWin = window.open("https://www.w3schools.com", "_blank");
 				} else {
 					childWin = window.open("https://www.w3schools.com", argName, "location=yes,fullscreen=no,toolbar=no,scrollbars=yes,resizable=yes,modal=no" + ",width="+screen.availWidth+",height="+screen.availHeight);
 				}
