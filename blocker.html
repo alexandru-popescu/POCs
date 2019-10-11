@@ -9,7 +9,7 @@
 var timeout = null;
 
 function onClickHandler() {
-	$.post( "test.json", function( data ) {
+	$.get( "test.json", function( data ) {
 		alert( "Data Loaded: " + data );
 	}).always(function() {
 		var delay = 0;
